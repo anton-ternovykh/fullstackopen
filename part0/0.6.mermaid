@@ -1,0 +1,11 @@
+sequenceDiagram
+    participant user
+    participant browser
+    participant server
+    user -->> browser: Enters note (test3) and clicks Save
+    browser ->> server: POST https://studies.cs.helsinki.fi/exampleapp/new_note_spa
+    Note left of server: Saves Note
+    Note right of browser: No redirect!
+    server ->> browser: {content: "test3", date: "2024-12-13T21:32:34.523Z"}
+    Note right of browser: Adds "test3" to the array of notes and re-renders the notes list
+    browser ->> user: List of all notes including the new added node
