@@ -1,0 +1,23 @@
+sequenceDiagram
+    participant user
+    participant browser
+    participant server
+    user ->> browser: Enters https://studies.cs.helsinki.fi/exampleapp/notes
+    browser ->> server: GET https://studies.cs.helsinki.fi/exampleapp/notes
+    activate server
+    server -->> browser: HTTP 304 with HTML content
+    deactivate server
+    browser ->> server: GET https://studies.cs.helsinki.fi/exampleapp/main.css
+    activate server
+    server -->> browser: HTTP 304 with CSS content
+    deactivate server
+    browser ->> server: GET https://studies.cs.helsinki.fi/exampleapp/main.js
+    activate server
+    server -->> browser: HTTP 304 with JS content
+    deactivate server
+    browser ->> server: GET https://studies.cs.helsinki.fi/exampleapp/data.json
+    activate server
+    server -->> browser: [{content: "eyyyy", date: "2024-12-13T12:10:16.758Z"}, ... ]
+    deactivate server
+    browser ->> user: Renders list with all entered notes and input for new note
+
