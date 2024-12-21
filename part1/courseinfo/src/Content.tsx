@@ -3,9 +3,9 @@ import Part from "./Part.tsx";
 const Content = (props) => {
     return (
         <>
-            {props.parts.map((part, index) => {
+            {props.parts.map((part) => {
                 return (
-                    <Part name={part.name} exercises={part.exercises} key={index}/>
+                    <Part key={part.id} name={part.name} exercises={part.exercises} />
                 )
             })}
         </>
