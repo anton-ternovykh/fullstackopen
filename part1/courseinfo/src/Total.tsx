@@ -1,11 +1,11 @@
-const Total = (props) => {
+const Total = ({course}) => {
 
-    const total = props.parts.reduce((acc, part) => {
+    const total = course.parts.reduce((acc, part) => {
         acc+= part.exercises;
         return acc;
     }, 0)
     return (
-        <p>Number of exercises {total}</p>
+        <p><strong>Total of exercises {total}</strong></p>
     )
 }
 
